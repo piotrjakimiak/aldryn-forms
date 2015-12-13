@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.admin import TabularInline
 from django.core.validators import MinLengthValidator
 from django.template.loader import select_template
+from django.utils import six
 from django.utils.translation import ugettext, ugettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
@@ -43,6 +44,9 @@ from .validators import (
     MinChoicesValidator,
     MaxChoicesValidator
 )
+
+if six.PY3:
+    unicode = str
 
 
 class FormElement(CMSPluginBase):
